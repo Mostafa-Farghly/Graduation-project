@@ -1,0 +1,25 @@
+<launch>
+	<include file="$(find 4wd_gazebo2)/launch/gazebo.launch"/>
+	
+	<node
+		name="tf_map_odom"
+	    pkg="tf"
+    	type="static_transform_publisher"
+	    args="0 0 0 0 0 0 map odom 100"/>
+	    
+	<node
+	 	name="map_server"
+	 	pkg="map_server"
+	 	type="map_server"
+	 	args="$(find toto_2dnav)/maps/map.yaml"/>
+	 	
+	 	
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find toto_2dnav)/costmap_config/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find toto_2dnav)/costmap_config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find toto_2dnav)/costmap_config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find toto_2dnav)/costmap_config/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find toto_2dnav)/costmap_config/base_local_planner_params.yaml" command="load" />
+ </node>
+	
+</launch>

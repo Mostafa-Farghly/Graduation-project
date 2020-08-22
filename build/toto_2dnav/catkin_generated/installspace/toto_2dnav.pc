@@ -1,0 +1,8 @@
+prefix=/home/mostafa/rosGP/install
+
+Name: toto_2dnav
+Description: Description of toto_2dnav
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,2 @@
+4wd_gazebo2:laser_sensor:toto_2dnav
+-DCATKIN_DEVEL_PREFIX=/home/mostafa/rosGP/devel -DCMAKE_INSTALL_PREFIX=/home/mostafa/rosGP/install -G Unix Makefiles

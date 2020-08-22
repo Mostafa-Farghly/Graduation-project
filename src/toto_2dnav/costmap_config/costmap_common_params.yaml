@@ -1,0 +1,59 @@
+obstacle_range: 2.5
+raytrace_range: 3.5
+footprint: [[-0.1, -0.1], [0.1, -0.1], [0.1, 0.1], [-0.1, 0.1]]
+publish_frequency: 1.0
+map_type: costmap
+
+
+
+obstacle_layer:
+   observation_sources: laser_scan
+   scan: {sensor_frame: laser_frame, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+ir_front_layer: 
+   ns: "/arduino/sensor"
+   topics: ["/ir_front"]
+   no_readings_timeout: 1.0
+   clear_threshold: 0.2
+   mark_threshold: 0.80
+   clear_on_max_reading: true
+
+
+ir_back_layer: 
+   ns: "/arduino/sensor"
+   topics: ["/ir_back"]
+   no_readings_timeout: 1.0
+   clear_threshold: 0.2
+   mark_threshold: 0.80
+   clear_on_max_reading: true
+
+ir_left_layer: 
+   ns: "/arduino/sensor"
+   topics: ["/ir_left"]
+   no_readings_timeout: 1.0
+   clear_threshold: 0.2
+   mark_threshold: 0.80
+   clear_on_max_reading: true
+
+ir_right_layer: 
+   ns: "/arduino/sensor"
+   topics: ["/ir_right"]
+   no_readings_timeout: 1.0
+   clear_threshold: 0.2
+   mark_threshold: 0.80
+   clear_on_max_reading: true
+
+
+inflation_layer:
+   inflation_radius: 0.1
+   cost_scaling_factor: 0.8
+
+
+plugins:
+    - {name: static_layer, type: "costmap_2d::StaticLayer"}
+    - {name: obstacle_layer,  type: "costmap_2d::VoxelLayer"}
+    - {name: ir_front_layer, type: "range_sensor_layer::RangeSensorLayer"}
+    - {name: ir_back_layer, type: "range_sensor_layer::RangeSensorLayer"}
+    - {name: ir_left_layer, type: "range_sensor_layer::RangeSensorLayer"}
+    - {name: ir_right_layer, type: "range_sensor_layer::RangeSensorLayer"}
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}

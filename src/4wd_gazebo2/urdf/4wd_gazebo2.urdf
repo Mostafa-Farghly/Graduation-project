@@ -1,0 +1,594 @@
+<?xml version="1.0"?>
+
+<robot
+  name="4wd_gazebo2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="3.8723E-07 -3.7492E-08 -0.024"
+        rpy="0 0 0" />
+      <mass
+        value="0.22645" />
+      <inertia
+        ixx="0.00040116"
+        ixy="1.2926E-19"
+        ixz="-2.1963E-19"
+        iyy="0.0014173"
+        iyz="-3.396E-12"
+        izz="0.0015987" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link
+    name="ir_fornt">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.04"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint
+    name="ir_fornt_joint"
+    type="fixed">
+    <origin
+      xyz="0.05 0 0.05"
+
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+
+      link="ir_fornt" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+
+
+
+
+  <link
+    name="FrontLeftWheel">
+    <inertial>
+      <origin
+        xyz="0.0082763 -3.4694E-18 7.8759E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.051031" />
+      <inertia
+        ixx="3.3072E-05"
+        ixy="1.3377E-21"
+        ixz="1.3437E-07"
+        iyy="1.8952E-05"
+        iyz="-1.2565E-21"
+        izz="1.8953E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/FrontLeftWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/FrontLeftWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FrontLeftJoint"
+    type="continuous">
+    <origin
+      xyz="0.059411 0.05681 -0.0325"
+      rpy="1.5708 3.1329E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="FrontLeftWheel" />
+    <axis
+      xyz="0.99995 0 0.0095158" />
+  </joint>
+  <link
+    name="BackLeftWheel">
+    <inertial>
+      <origin
+        xyz="0.0073659 1.3878E-17 -1.7387E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.051031" />
+      <inertia
+        ixx="3.3073E-05"
+        ixy="4.4232E-22"
+        ixz="-3.3333E-08"
+        iyy="1.8952E-05"
+        iyz="-1.3666E-21"
+        izz="1.8952E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/BackLeftWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/BackLeftWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BackLeftJoint"
+    type="continuous">
+    <origin
+      xyz="-0.056785 0.059242 -0.0325"
+      rpy="1.5708 3.1329E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="BackLeftWheel" />
+    <axis
+      xyz="1 0 -0.0023605" />
+  </joint>
+  <link
+    name="FrontRightWheel">
+    <inertial>
+      <origin
+        xyz="-0.0081291 8.6736E-18 7.7011E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.051031" />
+      <inertia
+        ixx="3.3072E-05"
+        ixy="6.8082E-22"
+        ixz="-1.3376E-07"
+        iyy="1.8952E-05"
+        iyz="-4.2618E-22"
+        izz="1.8953E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/FrontRightWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/FrontRightWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FrontRightJoint"
+    type="continuous">
+    <origin
+      xyz="0.059202 -0.055992 -0.0325"
+      rpy="1.5708 3.1329E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="FrontRightWheel" />
+    <axis
+      xyz="0.99996 0 -0.009473" />
+  </joint>
+  <link
+    name="BackRightWheel">
+    <inertial>
+      <origin
+        xyz="-0.0087527 3.4694E-18 1.0709E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.051031" />
+      <inertia
+        ixx="3.3073E-05"
+        ixy="6.9859E-22"
+        ixz="-1.7277E-08"
+        iyy="1.8952E-05"
+        iyz="-6.4979E-22"
+        izz="1.8952E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/BackRightWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4wd_gazebo2/meshes/BackRightWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BackRightJoint"
+    type="continuous">
+    <origin
+      xyz="-0.056551 -0.056774 -0.0325"
+      rpy="1.5708 3.1329E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="BackRightWheel" />
+    <axis
+      xyz="1 0 -0.0012235" />
+  </joint>
+  
+  
+  <link
+    name="ir_left">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0.3926875" />
+      <geometry>
+        <cylinder radius="0.02" length="0.04"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint
+    name="ir_left_joint"
+    type="fixed">
+    <origin
+      xyz="0.05 0.05 0.05"
+
+      rpy="0 0 0.3926875" />
+    <parent
+      link="base_link" />
+    <child
+
+      link="ir_left" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  
+  <link
+    name="ir_right">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 -0.3926875" />
+      <geometry>
+        <cylinder radius="0.02" length="0.04"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint
+    name="ir_right_joint"
+    type="fixed">
+    <origin
+      xyz="0.05 -0.05 0.05"
+
+      rpy="0 0 -0.3926875" />
+    <parent
+      link="base_link" />
+    <child
+
+      link="ir_right" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  
+  <link
+    name="ir_back">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 3.14159" />
+      <geometry>
+        <cylinder radius="0.02" length="0.04"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint
+    name="ir_back_joint"
+    type="fixed">
+    <origin
+      xyz="-0.05 0 0.05"
+
+      rpy="0 0 3.14159" />
+    <parent
+      link="base_link" />
+    <child
+
+      link="ir_back" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  
+  <link
+    name="laser_frame">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.1" length="0.03"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint
+    name="laser_frame_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.05"
+
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+
+      link="laser_frame" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  
+
+        <gazebo>
+	  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+	    <updateRate>100.0</updateRate>
+	    <robotNamespace></robotNamespace>
+	    <leftFrontJoint>FrontLeftJoint</leftFrontJoint>
+	    <rightFrontJoint>FrontRightJoint</rightFrontJoint>
+	    <leftRearJoint>BackLeftJoint</leftRearJoint>
+	    <rightRearJoint>BackRightJoint</rightRearJoint>
+	    <wheelSeparation>0.4</wheelSeparation>
+	    <wheelDiameter>0.215</wheelDiameter>
+	    <robotBaseFrame>base_link</robotBaseFrame>
+	    <torque>20</torque>
+	    <topicName>cmd_vel</topicName>
+	    <broadcastTF>true</broadcastTF>
+	  </plugin>
+	</gazebo>
+
+
+
+<!-- Loading gazebo sensor (laser scanner) plugin and connecting it to the laser scanner link -->
+   <gazebo reference="ir_fornt">        
+   <sensor type="ray" name="ir_front_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>1</samples>
+               <resolution>1.0</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>1</samples>
+               <resolution>1</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </vertical>
+         </scan>
+         <range>
+            <min>0.02</min>
+            <max>0.3</max>
+            <resolution>0.01</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>5</updateRate>
+         <topicName>/arduino/sensor/ir_front</topicName>
+         <frameName>ir_fornt</frameName>
+         <visualize>true</visualize>
+         <radiation>ultrasound</radiation>
+         <fov>0.02</fov>
+      </plugin>
+   </sensor>            
+</gazebo>
+
+
+<gazebo reference="ir_left">        
+   <sensor type="ray" name="ir_left_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>1</samples>
+               <resolution>1.0</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>1</samples>
+               <resolution>1</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </vertical>
+         </scan>
+         <range>
+            <min>0.02</min>
+            <max>0.3</max>
+            <resolution>0.01</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>5</updateRate>
+         <topicName>/arduino/sensor/ir_left</topicName>
+         <frameName>ir_left</frameName>
+         <visualize>true</visualize>
+         <radiation>ultrasound</radiation>
+         <fov>0.02</fov>
+      </plugin>
+   </sensor>            
+</gazebo>
+
+
+
+<gazebo reference="ir_right">        
+   <sensor type="ray" name="ir_right_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>1</samples>
+               <resolution>1.0</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>1</samples>
+               <resolution>1</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </vertical>
+         </scan>
+         <range>
+            <min>0.02</min>
+            <max>0.3</max>
+            <resolution>0.01</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>5</updateRate>
+         <topicName>/arduino/sensor/ir_right</topicName>
+         <frameName>ir_right</frameName>
+         <visualize>true</visualize>
+         <radiation>ultrasound</radiation>
+         <fov>0.02</fov>
+      </plugin>
+   </sensor>            
+</gazebo>
+
+
+
+<gazebo reference="ir_back">        
+   <sensor type="ray" name="ir_back_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>1</samples>
+               <resolution>1.0</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>1</samples>
+               <resolution>1</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </vertical>
+         </scan>
+         <range>
+            <min>0.02</min>
+            <max>0.3</max>
+            <resolution>0.01</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>5</updateRate>
+         <topicName>/arduino/sensor/ir_back</topicName>
+         <frameName>ir_back</frameName>
+         <visualize>true</visualize>
+         <radiation>ultrasound</radiation>
+         <fov>0.02</fov>
+      </plugin>
+   </sensor>            
+</gazebo>
+
+  
+</robot>
